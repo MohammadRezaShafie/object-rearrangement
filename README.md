@@ -1,4 +1,4 @@
-# Object Rearrangement Task Planning: A Robotics Simulation Approach
+# Object Rearrangement in Dynamic Environments
 
 This project automates the task of object rearrangement in a robotic simulation environment. By integrating object detection, scene navigation, and task planning, this project aims to create an efficient system for arranging objects based on predefined sequences and conditions in a simulated robotic environment.
 
@@ -13,21 +13,20 @@ This project automates the task of object rearrangement in a robotic simulation 
 - License
 
 ## ✨ Features
-- **Object Detection**: Utilizes YOLOv5 for accurate object detection with a custom detection pipeline adapted for specific task needs.
-- **Robotic Scene Navigation**: A script dedicated to navigating through the simulated environment, adjusting object positions and states to prepare for future tasks.
-- **Task Management**: Automates and plans object rearrangement tasks within a sequence.
 - **Dataset Collection**: Collects and saves bounding box data for detected objects and tracks object properties.
+- **Robotic Scene Navigation**: A script dedicated to navigating through the simulated environment, adjusting object positions and states to prepare for future tasks.
+- **Object Detection**: Utilizes YOLOv5 for accurate object detection with a custom detection pipeline adapted for specific task needs.
+- **Task Management**: Automates and plans object rearrangement tasks within a sequence.
 - **Flexible Action Handling**: Defines a set of basic actions for manipulating objects within the simulator.
 - **Relation Graph Construction**: Builds a graph of object relationships to help with decision-making in rearrangement tasks.
 
 ## ✅ Prerequisites
-Before running this project, ensure the following:
+Before running this project, ensure you have:
 - **Python 3.7+**
 - **PyTorch**: Required for YOLOv5 model inference.
 - **OpenCV**: For image processing and handling video frames.
 - **NumPy**: For numerical operations.
 - **Matplotlib**: For data visualization.
-- **YOLOv5 Weights**: This project uses pre-trained weights (`task_model.pt`) tailored to detect objects in the project-specific environment.
   
 ### How to Set Up the Project
 1. **Clone the YOLOv5 Repository**:
@@ -38,26 +37,7 @@ Before running this project, ensure the following:
    ```
 
 2. **Copy This Repository's Contents**:
-   After cloning the YOLOv5 repository, copy the contents of this repository into the folder where YOLOv5 is located. The directory structure should look like this:
-
-   ```
-   /yolov5
-   ├── models
-   ├── dataset-collection-tools
-   ├── helper-scripts
-   ├── pred-defined-paths
-   ├── scenes-metadata
-   ├── LICENSE
-   ├── README.md
-   ├── custom_detect.py
-   ├── final_detection.py
-   ├── find_difference_between_frames.py
-   ├── rearrangement_task_manager.py
-   ├── relation_graph.py
-   ├── sequence_planner.py
-   ├── set_objects_position.py
-   ```
-
+   After cloning the YOLOv5 repository, copy the contents of this repository into the folder where YOLOv5 is located.
 3. **Install Dependencies**:
    After cloning both repositories and copying the files, install the required dependencies for YOLOv5. In the terminal, navigate to the YOLOv5 folder and run:
    
@@ -71,8 +51,8 @@ The problem addressed by this project involves automating the process of detecti
 Key components of the project include:
 - **Object Detection**: Detect objects in frames using the YOLOv5 model.
 - **Scene Navigation**: Move objects around the scene and adjust their states to prepare for the next task.
-- **Sequence Planning**: Plan and execute tasks by determining the correct sequence of object manipulations.
-- **Data Collection**: Collect and store bounding box data for each detected object during the task.
+- **Sequence Planning**: Plan and execute tasks by determining the optimal sequence of object manipulations.
+
 
 ## 🔍 Methodology
 
@@ -94,40 +74,10 @@ The **`find_object_properties.py`** script extracts essential properties of the 
 ## 💡 Usage
 
 ### Running the Project
-1. **Define Initial and Goal States**: Set the initial state of the scene and define the goal state.
-2. **Object Detection**: Run the `final_detection.py` script to perform object detection using the custom YOLOv5 model.
-   ```python
-   from final_detection import detect_objects
+1. **Define Initial and Goal States**: Use the `scene_navigator.py` to set the initial state of the scene and define the goal state. Then run the script again for both the pre-change and post-change scenes. The agent will naviagte the scene in the pre-defined route and saves frames of both scenes.
+2. **Object Detection**: Run the `final_detection.py` script to perform object detection of all frames using the custom YOLOv5 model and save their results in detection folders.
+3. **Scene Navigation**: Run the 'rearrangement_task_manager.py' script to perfrorm object rearrangement within the scene.
 
-   # Define the path to the frames
-   frames_path = 'path_to_frames'
-
-   # Run the detection and save the results
-   detect_objects(frames_path)
-   ```
-3. **Scene Navigation**: Use the `scene_navigator.py` to load and adjust the scene by modifying object positions and states.
-   ```python
-   from scene_navigator import navigate_scene
-
-   # Navigate the scene and adjust object positions
-   navigate_scene('scene_name')
-   ```
-
-4. **Sequence Planning**: Run `sequence_planner.py` to plan and execute the sequence of object rearrangement tasks.
-   ```python
-   from sequence_planner import plan_sequence
-
-   # Plan and execute the rearrangement task
-   plan_sequence('task_name')
-   ```
-
-5. **Collect Bounding Box Data**: Use `bounding_box_plotter.py` to collect bounding box data after each action in the scene.
-   ```python
-   from bounding_box_plotter import collect_data
-
-   # Collect bounding box data for the current scene
-   collect_data('scene_name')
-   ```
 
 ## 📁 Project Structure
 
