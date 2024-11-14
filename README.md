@@ -144,7 +144,6 @@ The performance metrics for the object relocation tracking algorithm of this exp
 | **Recall**    | 96.8%   |
 | **Accuracy**  | 97.7%   |
 
-The results demonstrate the effectiveness of the best-associated frame selection algorithm in detecting spatial changes in the scene. The high precision, recall, and accuracy indicate that the algorithm is highly reliable in tracking object relocations with minimal false positives and false negatives.
 
 ## 📝 License
 This project uses the YOLOv5 model, which is licensed under the [GPL-3.0 License](https://opensource.org/licenses/GPL-3.0). For more information on the YOLOv5 license and usage, please refer to the official [YOLOv5 GitHub repository](https://github.com/ultralytics/yolov5).
