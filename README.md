@@ -87,36 +87,34 @@ The **`find_object_properties.py`** script extracts essential properties of the 
 ├── models
        ├── first_dataset_model.pt
        ├── second_dataset_model.pt
-       ├── task_model.pt
+       └── task_model.pt
 
 ├── dataset-collection-tools
        ├── bounding_box_plotter.py
-       ├── find_object_properties.py
+       └──  find_object_properties.py
 
 ├── helper-scripts
        ├── calculate_best_associated_frames.py
        ├── scene_navigator.py
-       ├── simulator_actions.py
+       └──  simulator_actions.py
 
 ├── pred-defined-paths
        ├── sequence.txt
        ├── sequence_ground_truth.txt
-       ├── sequence_with_tasks.txt
+       └── sequence_with_tasks.txt
 
 ├── scenes-metadata
-       ├── scene-metadata.json
+       └──  scene-metadata.json
 
 ├── LICENSE
 ├── README.md
-
 ├── custom_detect.py
 ├── final_detection.py
 ├── find_difference_between_frames.py
 ├── rearrangement_task_manager.py
 ├── relation_graph.py
 ├── sequence_planner.py
-├── set_objects_position.py
-└── README.md
+└── set_objects_position.py
 ```
 
 ### Folder and File Descriptions:
