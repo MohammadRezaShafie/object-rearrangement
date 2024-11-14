@@ -1,0 +1,201 @@
+Teleport
+MoveRight
+LookDown
+MoveLeft
+MoveLeft
+MoveLeft
+MoveAhead
+MoveAhead
+MoveLeft
+LookDown
+LookUp
+MoveBack
+MoveRight
+MoveRight
+MoveRight
+MoveRight
+MoveRight
+MoveRight
+MoveRight
+MoveRight
+Nothing
+MoveRight
+MoveRight
+MoveRight
+RotateLeft 10
+RotateLeft 10
+RotateLeft 10
+RotateLeft 10
+RotateLeft 10
+RotateLeft 10
+RotateLeft 10
+RotateLeft 10
+MoveAhead
+RotateLeft 10
+MoveAhead
+MoveAhead
+MoveAhead
+RotateLeft 10
+RotateLeft 10
+RotateLeft 10
+RotateLeft 10
+RotateLeft 10
+RotateLeft 10
+RotateLeft 10
+MoveAhead
+RotateLeft 10
+RotateLeft 10
+MoveAhead
+MoveRight
+MoveLeft
+MoveLeft
+MoveLeft
+MoveLeft
+RotateLeft 10
+RotateLeft 10
+RotateLeft 10
+RotateLeft 10
+RotateLeft 10
+RotateLeft 10
+RotateLeft 10
+RotateLeft 10
+MoveAhead
+RotateLeft 10
+MoveAhead
+MoveLeft
+MoveLeft
+Nothing
+Nothing
+RotateLeft 10
+RotateLeft 10
+RotateLeft 10
+RotateRight 10
+RotateRight 10
+RotateRight 10
+MoveRight
+MoveRight
+MoveRight
+MoveRight
+MoveRight
+MoveRight
+MoveRight
+MoveRight
+RotateRight 10
+RotateRight 10
+RotateRight 10
+RotateRight 10
+RotateRight 10
+RotateRight 10
+RotateRight 10
+RotateRight 10
+RotateRight 10
+RotateRight 10
+RotateRight 10
+RotateRight 10
+RotateRight 10
+RotateRight 10
+RotateRight 10
+RotateRight 10
+RotateRight 10
+RotateRight 10
+LookUp
+MoveAhead
+MoveRight
+MoveRight
+MoveRight
+LookDown
+MoveLeft
+MoveLeft
+MoveLeft
+MoveLeft
+MoveLeft
+MoveLeft
+MoveLeft
+RotateRight 10
+RotateRight 10
+RotateRight 10
+RotateRight 10
+RotateRight 10
+RotateRight 10
+RotateRight 10
+RotateRight 10
+MoveBack
+MoveLeft
+MoveLeft
+LookUp
+MoveLeft
+RotateRight 10
+MoveLeft
+MoveAhead
+MoveLeft
+MoveLeft
+LookDown
+MoveBack
+MoveLeft
+MoveLeft
+MoveLeft
+MoveLeft
+MoveAhead
+MoveAhead
+MoveAhead
+MoveAhead
+MoveAhead
+RotateRight 10
+RotateRight 10
+RotateRight 10
+RotateRight 10
+RotateRight 10
+RotateRight 10
+RotateRight 10
+RotateRight 10
+RotateRight 10
+RotateRight 10
+LookDown
+MoveAhead
+Nothing
+RotateLeft 10
+RotateLeft 10
+LookUp
+LookUp
+MoveLeft
+MoveLeft
+MoveLeft
+LookDown
+LookDown
+Nothing
+LookUp
+LookUp
+LookUp
+MoveLeft
+MoveLeft
+RotateRight 10
+RotateLeft 10
+RotateLeft 10
+RotateLeft 10
+RotateLeft 10
+RotateLeft 10
+RotateLeft 10
+RotateLeft 10
+MoveAhead
+RotateLeft 10
+RotateLeft 10
+Nothing
+MoveRight
+MoveRight
+MoveRight
+MoveRight
+MoveRight
+MoveRight
+MoveLeft
+MoveLeft
+MoveLeft
+MoveLeft
+MoveLeft
+LookDown
+LookDown
+MoveAhead
+MoveAhead
+LookUp
+MoveLeft
+Teleport2
+Teleport
