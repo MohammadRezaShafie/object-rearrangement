@@ -184,7 +184,6 @@ The **`find_object_properties.py`** script extracts essential properties of the 
 - **sequence_planner.py**: Plans and organizes the sequence of actions for object rearrangement.
 - **set_objects_position.py**: Defines the positions of objects within the simulator based on a previous metadata.
 
-## 📊 Performance Analysis
 
 ## 📊 Performance Analysis
 The performance of the algorithm has not been tested for rearrangement tasks, yet. However, in order to evaluate the model’s effectiveness in detecting and tracking object relocation, an experiment was conducted using the AI2-THOR simulation environment. The experiment involved 9 randomly generated scenes and a default scene, with each scene containing between 60 and 80 objects. In total, 614 objects across all scenes were examined to determine whether they had been relocated. The intelligent agent followed a fixed route through each environment, comparing all 9 scenes against the default scene.
