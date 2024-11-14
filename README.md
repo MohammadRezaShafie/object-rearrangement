@@ -136,7 +136,7 @@ The **`find_object_properties.py`** script extracts essential properties of the 
 
 
 ## 📊 Performance Analysis
-The performance of the algorithm has not been tested for rearrangement tasks, yet. However, in order to evaluate the model’s effectiveness in detecting and tracking object relocation, an experiment was conducted using the AI2-THOR simulation environment. The experiment involved 9 randomly generated scenes and a default scene, with each scene containing between 60 and 80 objects. In total, 614 objects across all scenes were examined to determine whether they had been relocated. The intelligent agent followed a fixed route through each environment, comparing all 9 scenes against the default scene.
+**The performance of the algorithm has not been tested for rearrangement tasks, yet.** However, in order to evaluate the model’s effectiveness in detecting and tracking object relocation, an experiment was conducted using the AI2-THOR simulation environment. The experiment involved 9 randomly generated scenes and a default scene, with each scene containing between 60 and 80 objects. In total, 614 objects across all scenes were examined to determine whether they had been relocated. The intelligent agent followed a fixed route through each environment, comparing all 9 scenes against the default scene.
 ### Performance Metrics
 The performance metrics for the object relocation tracking algorithm of this experiment were as follows:
 
