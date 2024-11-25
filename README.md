@@ -2,9 +2,6 @@
 
 This project automates the task of object rearrangement in a robotic simulation environment. By integrating object detection, scene navigation, and task planning, this project aims to create an efficient system for arranging objects based on predefined sequences and conditions in a simulated robotic environment.
 
-[![Project Overview](https://github.com/ArashNasrEsfahani/Object-Rearrangement-in-Dynamic-Environments/blob/main/project-videos/ICCKE%20Video.gif)]([path/to/video.mp4](https://github.com/ArashNasrEsfahani/Object-Rearrangement-in-Dynamic-Environments/blob/main/project-videos/ICCKE-Video.mp4))
-
-
 
 
 ## 📝 Table of Contents
