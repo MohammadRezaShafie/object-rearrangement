@@ -738,15 +738,19 @@ def count_lines(file_path):
 
 
 if __name__ == "__main__":
-    file_path = 'seq_action.txt'
+    file_path = 'sequence_with_tasks.txt'
     action_num = count_lines(file_path)
     sequence = []
-    delete_previous_frames()
+ 
+    # delete_previous_frames()
+    # Used for setting the pre-defined scene
     # set_object_poses_from_metadata(controller,"metadata3.json")
+ 
     with keyboard.Listener(on_press=on_press, on_release=on_release) as listener:
         listener.join()  
-    
-    # event = controller.last_event
+
+    # Used for saving the current scene metadata
+    # event = controller.last_event 
     # json_data = json.dumps(event.metadata)
     # with open("metadata12.json", "w") as json_file:
     #     json_file.write(json_data)
