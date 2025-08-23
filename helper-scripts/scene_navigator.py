@@ -189,7 +189,7 @@ def create_video_from_frames(output_video_path, frames_per_second):
     
 def execute_sequence():
     sequence = []
-    with open('seq_action.txt', 'r') as file:
+    with open('../pre-defined-paths/sequence_with_tasks.txt', 'r') as file:
         sequence = file.read().splitlines()
 
     for action in sequence:
@@ -738,7 +738,7 @@ def count_lines(file_path):
 
 
 if __name__ == "__main__":
-    file_path = 'sequence_with_tasks.txt'
+    file_path = 'pre-defined-paths/sequence_with_tasks.txt'
     action_num = count_lines(file_path)
     sequence = []
  

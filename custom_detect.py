@@ -98,6 +98,7 @@ def run(
     custom_save_path = 'detections'
 
     save_dir = Path(custom_save_path)
+    os.path.exists(save_dir) or save_dir.mkdir(parents=True, exist_ok=True)  # make dir
     d_id = str(d_id)
     d_id = d_id[1:-1]
     labels_file_path = os.path.join(save_dir, f'dframe_{d_id}.txt')
@@ -249,7 +250,7 @@ def run(
 
 def parse_opt():
     parser = argparse.ArgumentParser()
-    parser.add_argument('--weights', nargs='+', type=str, default=ROOT / 'yolov5s.pt', help='model path or triton URL')
+    parser.add_argument('--weights', nargs='+', type=str, default=ROOT / 'models/task_model.pt', help='model path or triton URL')
     parser.add_argument('--source', type=str, default=ROOT / 'data/images', help='file/dir/URL/glob/screen/0(webcam)')
     parser.add_argument('--data', type=str, default=ROOT / 'data/coco128.yaml', help='(optional) dataset.yaml path')
     parser.add_argument('--imgsz', '--img', '--img-size', nargs='+', type=int, default=[640], help='inference size h,w')
