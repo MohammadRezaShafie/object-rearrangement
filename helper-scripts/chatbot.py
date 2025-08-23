@@ -62,12 +62,27 @@ def clear_conversation_history():
     else:
         print("No conversation history file found.")
 
+def get_api_key():
+    """
+    Retrieve API key from file, or prompt user if not found.
+    """
+    api_key_file = os.path.join(os.path.dirname(__file__), "api_key.txt")
+    if os.path.exists(api_key_file):
+        with open(api_key_file, 'r', encoding='utf-8') as f:
+            return f.read().strip()
+    else:
+        api_key = input("Enter your Google Generative AI API key: ").strip()
+        with open(api_key_file, 'w', encoding='utf-8') as f:
+            f.write(api_key)
+        return api_key
+
 def send_to_chatbot_api(user_input, use_history=True):
     """
     Sends user input to the Google Generative AI API and retrieves the response.
     Maintains conversation history in a file.
     """
-    genai.configure(api_key="")  # Updated with actual API key
+    api_key = get_api_key()
+    genai.configure(api_key=api_key)
 
     try:
         # Load conversation history
