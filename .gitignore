@@ -1,3 +1,5 @@
 helper-scripts/frames
+helper-scripts/api_key.txt
 *.pyc
 conversation_histories
+test.py
