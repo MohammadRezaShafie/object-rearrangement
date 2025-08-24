@@ -120,8 +120,8 @@ def send_to_chatbot_api(user_input, use_history=True):
                                     - move right - add number if specified
                                     - rotate left (or turn left) - add number or degrees if specified (e.g., "rotate left 90 degrees")
                                     - rotate right (or turn right) - add number or degrees if specified
-                                    - look up
-                                    - look down
+                                    - look up - add number if specified (each counts as one look increment)
+                                    - look down - add number if specified (each counts as one look increment)
                                     - pickup (for picking up objects)
                                     - drop (for dropping objects)
 
@@ -129,6 +129,7 @@ def send_to_chatbot_api(user_input, use_history=True):
                                     Examples:
                                     - User: "move forward 3 steps" → Response: "move ahead 3"
                                     - User: "rotate left 90 degrees" → Response: "rotate left 90 degrees"
+                                    - User: "look up 2" → Response: "look up 2"
                                     - User: "turn right 5" → Response: "rotate right 5"
 
                                     Just respond with the action command including any numbers, nothing else."""
@@ -225,17 +226,23 @@ def execute_single_command(command, controller):
     
     # Look commands
     elif "look up" in command:
-        controller.step("LookUp")
-        return "Looked up"
+        steps = int(numbers[0]) if numbers else 1
+        for _ in range(steps):
+            controller.step("LookUp")
+            time.sleep(0.1)
+        return f"Looked up {steps} time(s)"
     elif "look down" in command:
-        controller.step("LookDown")
-        return "Looked down"
+        steps = int(numbers[0]) if numbers else 1
+        for _ in range(steps):
+            controller.step("LookDown")
+            time.sleep(0.1)
+        return f"Looked down {steps} time(s)"
     
     # Object manipulation
     elif any(word in command for word in ["pickup", "pick up", "grab"]):
         try:
-            pickup_action(controller)
-            return "Attempted to pick up object"
+            msg = pickup_action(controller)
+            return msg
         except Exception as e:
             return f"Failed to pick up object: {e}"
     elif any(word in command for word in ["drop", "put down"]):
@@ -270,13 +277,36 @@ def execute_multiple_rotations(controller, action, rotations, message):
     return f"{message} {rotations * 10} degrees ({rotations} step(s))"
 
 def pickup_action(controller):
-    object_id = get_object_in_frame(controller)
-    controller.step(
-        action="PickupObject",
-        objectId=object_id,
-        forceAction=False,
-        manualInteract=False
-    )
+    # Gather visible objects in frame (center region sampling similar to scene_navigator)
+    objects = get_objects_in_frame(controller)
+    if not objects:
+        info = "No visible objects to pick up"
+        append_to_conversation_history(f"System: {info}")
+        return info
+    # Map object metadata
+    event = controller.last_event
+    id_map = {o["objectId"]: o for o in event.metadata.get("objects", [])}
+    # Choose first pickupable object
+    target_id = None
+    for oid in objects:
+        meta = id_map.get(oid, {})
+        if meta.get("pickupable") and not meta.get("isPickedUp"):
+            target_id = oid
+            break
+    if target_id is None:
+        target_id = objects[0]
+    try:
+        controller.step(
+            action="PickupObject",
+            objectId=target_id,
+            forceAction=False,
+            manualInteract=False
+        )
+        info = f"Visible objects: {', '.join(objects)} | Picked up: {target_id}"
+    except Exception as e:
+        info = f"Visible objects: {', '.join(objects)} | Pickup failed: {e}"
+    append_to_conversation_history(f"System: {info}")
+    return info
 
 def drop_action(controller):
     controller.step(
@@ -284,6 +314,31 @@ def drop_action(controller):
         forceAction=True
     )
 
+def get_objects_in_frame(controller):
+    """Scan the center of the frame and return a list of unique visible objectIds."""
+    seen = set()
+    # Ensure we have a recent event
+    try:
+        _ = controller.last_event
+    except Exception:
+        try:
+            controller.step("Pass")
+        except Exception:
+            return []
+    for i in range(10):
+        for j in range(10):
+            xi = 0.40 + (i / 50.0)
+            yi = 0.40 + (j / 50.0)
+            try:
+                query = controller.step(action="GetObjectInFrame", x=xi, y=yi, checkVisible=False)
+                oid = query.metadata.get("actionReturn")
+                if oid:
+                    seen.add(oid)
+            except Exception:
+                continue
+    return list(seen)
+
 def get_object_in_frame(controller):
-    # Placeholder for object detection logic
-    return "example_object_id"
+    # Deprecated placeholder retained for compatibility
+    objs = get_objects_in_frame(controller)
+    return objs[0] if objs else None
